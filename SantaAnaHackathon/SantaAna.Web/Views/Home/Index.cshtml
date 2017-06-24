@@ -20,6 +20,27 @@
                 <div class="clearfix"> </div>
             </div>
             <!-- //header -->
+            <!-- banner-intro -->
+            <div class="banner-bottom">
+                <div class="banner-bottom-grids">
+                    <div class="col-md-4 banner-bottom-grid">
+                        <h3>Welcome To <span>Kids 4 Life</span></h3>
+                        <h2><i>"Cray waistcoat vice selfies pop-up PBR&B polaroid. "</i></h2>
+                        <p>
+                            Kickstarter affogato shaman yr occupy. Edison bulb intelligentsia pug brunch meggings narwhal kombucha twee gentrify coloring book.
+                            <span>
+                                Shoreditch kale chips gentrify af farm-to-table. Unicorn pour-over 90's cray chicharrones craft beer actually try-hard mixtape taiyaki VHS beard letterpress.
+                            </span>
+                        </p>
+                        <div class="more">
+                            <a href="single.html" class="hvr-rectangle-out">Read More...</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- //banner-intro -->
+
             <!-- banner -->
             <div class="banner">
                 <div class="banner-grids">
@@ -215,7 +236,7 @@
                                         <div>
 
                                             <div ng-repeat="child in fc.myChildren">
-                                                {{child.childName}}
+                                                {{child.ChildName}}
                                             </div>
                                         </div>
                                     </div>
@@ -226,27 +247,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- banner-bottom -->
-            <div class="banner-bottom">
-                <div class="banner-bottom-grids">
-                    <div class="col-md-4 banner-bottom-grid">
-                        <h3>Welcome To <span>Kids 4 Life</span></h3>
-                        <h2><i>"Cray waistcoat vice selfies pop-up PBR&B polaroid. "</i></h2>
-                        <p>
-                            Kickstarter affogato shaman yr occupy. Edison bulb intelligentsia pug brunch meggings narwhal kombucha twee gentrify coloring book. 
-                            <span>
-                                Shoreditch kale chips gentrify af farm-to-table. Unicorn pour-over 90's cray chicharrones craft beer actually try-hard mixtape taiyaki VHS beard letterpress. 
-                            </span>
-                        </p>
-                        <div class="more">
-                            <a href="single.html" class="hvr-rectangle-out">Read More...</a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <!-- //banner-bottom -->
         </div>
     </div>
 </div>
@@ -336,15 +336,49 @@
                     //.then(onCompleteFoodSearch)
                 }
             }
-        })();
+        })(); 
 
+
+        (function () {
+            "use strict";
+
+            angular.module('myApp').factory('$childrenServiceFactory', $ChildrenServiceFactory);
+
+            $ChildrenServiceFactory.$inject = ['$http'];
+
+            function $ChildrenServiceFactory($http) {
+
+                return {
+                    getChildren: _getChildren
+                }
+
+                function _getChildren() {
+                    return $http.get('/api/child')
+                        .then(onGetChildSuccess)
+                        .catch(onError);
+                } //_getChildren
+
+                function onGetChildSuccess(response) {
+                    console.log("successfully retrieved children data");
+                    console.log("response", response);
+                    return response.data;
+                } //onGetChildSuccess
+
+                function onError() {
+                    console.log("ERROR!");
+                    alert("YOU FUCKED UP!")
+                } //onError
+
+            }
+
+        })();
         (function () {
             "use strict";
             angular.module('myApp').controller('foodController', FoodController);
 
-            FoodController.$inject = ['$scope', '$fatSecretService', '$http'];
+            FoodController.$inject = ['$scope', '$fatSecretService', '$childrenServiceFactory', '$http'];
 
-            function FoodController($scope, $fatSecretService, $http) {
+            function FoodController($scope, $fatSecretService, $childrenServiceFactory, $http) {
                 var vm = this;
                 vm.$scope = $scope;
                 vm.$fatSecretService = $fatSecretService;
@@ -357,12 +391,16 @@
                 vm.submitChild = _submitChild;
                 vm.myChildren = null;
                 vm.getChildren = _getChildren;
+                vm.retrieveChildren = _retrieveChildren;
 
                 render();
 
                 function render() {
                     console.log("starting");
                     vm.foodSearch();
+
+                    return vm.getChildren()
+                        .then(getChildrenSuccess);
                 }
 
                 function _foodSearch() {
@@ -404,15 +442,22 @@
                 }
 
                 function _getChildren() {
-                    return $http.get('/api/child')
-                        .then(onGetChildSuccess)
-                        .catch(onError);
-                }
+                    console.log("getting all children...")
 
-                function onGetChildSuccess(data) {
-                    vm.myChildren = data.item;
-                    console.log("Got Children");
-                }
+                    return $childrenServiceFactory.getChildren()
+                        .then(vm.retrieveChildren);
+                } //_getChildren
+
+                function _retrieveChildren(data) {
+                    console.log("retrieve children data..")
+                    console.log("data",data);
+                    vm.myChildren = data;
+                } //_retrieveChildren
+
+                function getChildrenSuccess() {
+                    console.log("completed render and retrieving children data")
+                } //getChildrenSuccess
+
             }
 
 
