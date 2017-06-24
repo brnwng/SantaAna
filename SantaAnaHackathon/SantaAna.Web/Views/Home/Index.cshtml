@@ -3,35 +3,122 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Kids 4 Life</h1>
+
 </div>
-
-{{2+2}}
-
 
 <div class="row" ng-controller="foodController as fc">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="panel container">
+            <div class="panel-default">
+            
+
+                <div class="col-md-12">
+                    <!-- start family information -->
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> Family Information</a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div>
+                                        <form id="form" name="form">
+
+                                            <div class="form-group">
+                                                <h5><label>Family Size</label></h5>
+                                                <input type="number" name="familySize" min="1" max="20" class="form-control" ng-model="fc.item.familySize" style="max-width:800px;" />
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <h5><label>Number of Children</label></h5>
+                                                <input type="number" name="numberOfChildren" min="1" max="20" class="form-control" ng-model="fc.item.numberOfChildren" maxlength="50" style="max-width:800px;" />
+                                            </div><br />
+
+                                            <br />
+                                            <button type="submit" class="btn btn-primary" ng-click="fc.onSubmit(fc.item)">Submit</button><br />
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end parent section-->
+
+
+                    <!-- child information-->
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"> Child Information</a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div>
+                                        <form id="childForm" name="childForm">
+
+                                            <div class="form-group">
+                                                <h5><label>Child Name</label></h5>
+                                                <input type="text" name="childName" class="form-control" ng-model="fc.child.childName" style="max-width:800px;" />
+                                            </div>
+
+
+                                            <div class="form-group container">
+                                                <div class="row">
+                                                    <h5><label>Age (Years/Months)</label></h5>
+                                                    <div class="col-md-4">
+                                                        <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child.childAgeYears" placeholder="Years" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child.childAgeMonths" placeholder="Months" />
+                                                    </div>
+                                                    </div>
+                                            </div><br />
+
+                                            <br />
+                                            <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child)">Submit</button><br />
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end child information-->
+
+
+                    <!-- select child start-->
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Select Child</a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div>
+                                       
+
+                                           <div ng-repeat="child in fc.myChildren">
+                                               {{child.childName}}
+                                           </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- select child end-->
+            </div>
+        </div>
     </div>
 </div>
+
 
 
 @section scripts{
@@ -48,7 +135,7 @@
                 var vm = this;
 
                 return {
-                    foodSearch: _foodSearch
+                    foodSearch: _foodSearch,
                 }
 
                 function _foodSearch() {
@@ -63,8 +150,12 @@
                     }
 
                     return $http(vm.settings)
-                        //.then(onCompleteFoodSearch)
+                    //.then(onCompleteFoodSearch)
                 }
+
+
+
+
             }
         })();
 
@@ -72,20 +163,31 @@
             "use strict";
             angular.module('myApp').controller('foodController', FoodController);
 
-            FoodController.$inject = ['$scope', '$fatSecretService'];
+            FoodController.$inject = ['$scope', '$fatSecretService', '$http'];
 
-            function FoodController($scope, $fatSecretService) {
+            function FoodController($scope, $fatSecretService, $http) {
                 var vm = this;
                 vm.$scope = $scope;
                 vm.$fatSecretService = $fatSecretService;
+                vm.$http = $http;
 
                 vm.foodSearch = _foodSearch;
+
+                //family size input
+                vm.item = null;
+                vm.child = null;
+                vm.onSubmit = _onSubmit;
+                vm.submitChild = _submitChild;
+                vm.myChildren = null;
+                vm.getChildren = _getChildren;
 
                 render();
 
                 function render() {
                     console.log("starting");
                     vm.foodSearch();
+
+                    vm.getChildren();
                 }
 
                 function _foodSearch() {
@@ -96,6 +198,50 @@
                 function onCompleteFoodSearch(response) {
                     console.log(response)
                 }
+
+
+
+                // family size inputs
+                function _onSubmit(item) {
+                    $("#collapse1").collapse("hide");
+                    $("#collapse2").collapse("show");
+                    vm.item = item;
+                    return $http.post('/api/parents', item)
+                        .then(onCreateSuccess)
+                        .catch(onError);
+                   
+                }
+
+                function _submitChild(child) {
+                    $("#collapse2").collapse("hide");
+                    $("#collapse3").collapse("show");
+
+                    vm.child = child;
+                    return $http.post('/api/child', child)
+                        .then(onCreateSuccess)
+                        .catch(onError);
+                }
+
+                function onCreateSuccess(response) {
+                    return response.data;
+                }
+
+                function onError() {
+                    console.log("Error");
+                }
+
+                function _getChildren() {
+                    return $http.get('/api/child')
+                        .then(onGetChildSuccess)
+                        .catch(onError);
+                }
+
+                function onGetChildSuccess(data) {
+                    vm.myChildren = data.item;
+                    console.log("Got Children");
+                }
+
+
             }
 
 
