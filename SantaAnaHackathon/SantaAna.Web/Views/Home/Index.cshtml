@@ -147,9 +147,72 @@
                                                             <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child.childAgeMonths" placeholder="Months" />
                                                         </div>
                                                     </div>
-                                                </div><br />
+                                                    </div><br />
+
+                                                    <div ng-if="fc.item.numberOfChildren > 1">
+                                                    <div class="form-group">
+                                                        <h5><label>Child Name</label></h5>
+                                                        <input type="text" name="childName" class="form-control" ng-model="fc.child2.childName" style="max-width:800px;" />
+                                                    </div>
+
+                                                        <div class="form-group container">
+                                                            <div class="row">
+                                                                <h5><label>Age (Years/Months)</label></h5>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child2.childAgeYears" placeholder="Years" />
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child2.childAgeMonths" placeholder="Months" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div><br />
+
+
+                                                    <div ng-if="fc.item.numberOfChildren > 2">
+                                                        <div class="form-group">
+                                                            <h5><label>Child Name</label></h5>
+                                                            <input type="text" name="childName" class="form-control" ng-model="fc.child3.childName" style="max-width:800px;" />
+                                                        </div>
+
+                                                        <div class="form-group container">
+                                                            <div class="row">
+                                                                <h5><label>Age (Years/Months)</label></h5>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child3.childAgeYears" placeholder="Years" />
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child3.childAgeMonths" placeholder="Months" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div><br />
+
+                                                        <div ng-if="fc.item.numberOfChildren > 3">
+                                                            <div class="form-group">
+                                                                <h5><label>Child Name</label></h5>
+                                                                <input type="text" name="childName" class="form-control" ng-model="fc.child4.childName" style="max-width:800px;" />
+                                                            </div>
+
+                                                            <div class="form-group container">
+                                                                <div class="row">
+                                                                    <h5><label>Age (Years/Months)</label></h5>
+                                                                    <div class="col-md-4">
+                                                                        <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child4.childAgeYears" placeholder="Years" />
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child4.childAgeMonths" placeholder="Months" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div><br />
+
                                                 <br />
-                                                <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child)">Submit</button><br />
+                                                <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child, fc.child2, fc.child3, fc.child4)">Submit</button><br />
                                             </form>
                                         </div>
                                     </div>
@@ -178,7 +241,52 @@
                             </div>
                         </div>
                         <!-- select child end-->
+                        <!--Menus-->
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#menus"> Menus</a>
+                                    </h4>
+                                </div>
+                                <div id="menus" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div>
+                                            <ol>
+                                                <li ng-repeat="food in fc.food | orderBy: 'Calories'"><strong>{{food.Name}}</strong>, Calories: <strong>{{food.Calories}} kcal</strong><br /><br /></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Menus-->
                     </div>
+                </div>
+            </div>
+<<<<<<< HEAD
+
+            <div>
+
+            </div>
+
+            <!-- banner-bottom -->
+            <div class="banner-bottom">
+                <div class="banner-bottom-grids">
+                    <div class="col-md-4 banner-bottom-grid">
+                        <h3>Welcome To <span>Kids 4 Life</span></h3>
+                        <h2><i>"Cray waistcoat vice selfies pop-up PBR&B polaroid. "</i></h2>
+                        <p>
+                            Kickstarter affogato shaman yr occupy. Edison bulb intelligentsia pug brunch meggings narwhal kombucha twee gentrify coloring book.
+                            <span>
+                                Shoreditch kale chips gentrify af farm-to-table. Unicorn pour-over 90's cray chicharrones craft beer actually try-hard mixtape taiyaki VHS beard letterpress.
+                            </span>
+                        </p>
+                        <div class="more">
+                            <a href="single.html" class="hvr-rectangle-out">Read More...</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
             </div>
             <!--END ACCORDION-->
@@ -342,9 +450,9 @@
                 <div class="clearfix"> </div>
             </ul>
             <script>
-                                $(function () {
-                                    $('[data-toggle="tooltip"]').tooltip()
-                                })
+                            $(function () {
+                                $('[data-toggle="tooltip"]').tooltip()
+                            })
             </script>
         </div>
     </div>
@@ -352,27 +460,154 @@
 <!-- //footer -->
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
-                                $(document).ready(function () {
-                                    /*
-                                    var defaults = {
-                                        containerID: 'toTop', // fading element id
-                                        containerHoverID: 'toTopHover', // fading element hover id
-                                        scrollSpeed: 1200,
-                                        easingType: 'linear'
-                                    };
-                                    */
+                            $(document).ready(function () {
+                                /*
+                                var defaults = {
+                                    containerID: 'toTop', // fading element id
+                                    containerHoverID: 'toTopHover', // fading element hover id
+                                    scrollSpeed: 1200,
+                                    easingType: 'linear'
+                                };
+                                */
 
-                                    $().UItoTop({ easingType: 'easeOutQuart' });
+                                $().UItoTop({ easingType: 'easeOutQuart' });
 
-                                });
+                            });
 </script>
 <!-- //here ends scrolling icon -->
+
 
 
 
 @section scripts{
 
     <script>
+<<<<<<< HEAD
+                            (function () {
+                                "use strict";
+
+                                angular.module('myApp').factory('$fatSecretService', fatSecretService)
+
+                                fatSecretService.$inject = ['$http'];
+
+                                function fatSecretService($http) {
+                                    var vm = this;
+
+                                    return {
+                                        foodSearch: _foodSearch
+                                    }
+
+                                    function _foodSearch() {
+
+                                        return $http.get('/api/food')
+                                        //.then(onCompleteFoodSearch)
+                                    }
+                                }
+                            })();
+
+                            (function () {
+                                "use strict";
+                                angular.module('myApp').controller('foodController', FoodController);
+
+                                FoodController.$inject = ['$scope', '$fatSecretService', '$http'];
+
+                                function FoodController($scope, $fatSecretService, $http) {
+                                    var vm = this;
+                                    vm.$scope = $scope;
+                                    vm.$fatSecretService = $fatSecretService;
+
+                                    vm.foodSearch = _foodSearch;
+                                    vm.food = [];
+                                    //family size input
+                                    vm.item = null;
+                                    vm.child = null;
+                                    vm.onSubmit = _onSubmit;
+                                    vm.submitChild = _submitChild;
+                                    vm.myChildren = null;
+                                    vm.getChildren = _getChildren;
+
+                                    render();
+
+                                    function render() {
+                                        console.log("starting");
+                                        vm.foodSearch();
+                                    }
+
+                                    function _foodSearch() {
+                                        vm.$fatSecretService.foodSearch()
+                                            .then(onCompleteFoodSearch)
+                                    }
+
+                                    function onCompleteFoodSearch(response) {
+                                        console.log(response)
+
+                                        for (var i = 0; i < response.data.length; i++) {
+                                            if (vm.child.ChildAgeYears <= 5) {
+                                                if (response.data[i].Calories < 100) {
+                                                    vm.food.push(response.data[i]);
+                                                }
+                                            }
+
+                                            else if (vm.child.ChildAgeYears > 6 && vm.child.ChildAgeYears <= 10) {
+                                                if (response.data[i].Calories < 150) {
+                                                    vm.food.push(response.data[i]);
+                                                }
+                                            }
+
+                                            else if (vm.child.ChildAgeYears > 11) {
+                                                vm.food.push(response.data[i]);
+                                            }
+
+                                        }
+
+                                        //vm.food = response.data;
+                                        return response;
+                                    }
+
+                                    // family size inputs
+                                    function _onSubmit(item) {
+                                        $("#collapse1").collapse("hide");
+                                        $("#collapse2").collapse("show");
+                                        vm.item = item;
+                                        return $http.post('/api/parents', item)
+                                            .then(onCreateSuccess)
+                                            .catch(onError);
+
+                                    }
+
+                                    function _submitChild(child) {
+                                        $("#collapse2").collapse("hide");
+                                        $("#collapse3").collapse("show");
+
+                                        vm.child = child;
+                                        return $http.post('/api/child', child)
+                                            .then(onCreateSuccess)
+                                            .catch(onError);
+                                    }
+
+                                    function onCreateSuccess(response) {
+                                        return response.data;
+                                    }
+
+                                    function onError() {
+                                        console.log("Error");
+                                    }
+
+                                    function _getChildren() {
+                                        return $http.get('/api/child')
+                                            .then(onGetChildSuccess)
+                                            .catch(onError);
+                                    }
+
+                                    function onGetChildSuccess(data) {
+                                        vm.myChildren = data.item;
+                                        console.log("Got Children");
+                                    }
+                                }
+
+
+                            })();
+=======
         (function () {
             "use strict";
 
@@ -384,7 +619,7 @@
                 var vm = this;
 
                 return {
-                    foodSearch: _foodSearch
+                    foodSearch: _foodSearch,
                 }
 
                 function _foodSearch() {
@@ -401,6 +636,10 @@
                     return $http(vm.settings)
                     //.then(onCompleteFoodSearch)
                 }
+
+
+
+
             }
         })(); 
 
@@ -448,6 +687,7 @@
                 var vm = this;
                 vm.$scope = $scope;
                 vm.$fatSecretService = $fatSecretService;
+                vm.$http = $http;
 
                 vm.foodSearch = _foodSearch;
                 //family size input
@@ -460,6 +700,12 @@
                 vm.retrieveChildren = _retrieveChildren;
                 vm.foodSearch = _foodSearch;
                 vm.food = [];
+
+                //children stuff (for addtional children)
+                vm.child2 = null;
+                vm.child3 = null;
+                vm.child4 = null;
+
 
                 render();
 
@@ -488,17 +734,45 @@
                     return $http.post('/api/parents', item)
                         .then(onCreateSuccess)
                         .catch(onError);
-
                 }
 
-                function _submitChild(child) {
+                function _submitChild(child, child2, child3, child4) {
                     $("#collapse2").collapse("hide");
                     $("#collapse3").collapse("show");
 
                     vm.child = child;
+                    vm.child = child2;
+                    vm.child = child3;
+                    vm.child = child4;
+                    if (vm.item.numberOfChildren == 1){
                     return $http.post('/api/child', child)
                         .then(onCreateSuccess)
-                        .catch(onError);
+                            .catch(onError);
+
+                    console.log("Input first child");
+                    }
+
+                    if (vm.item.numberOfChildren > 1) {
+                        return $http.post('/api/child', vm.child2)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+                        console.log("Input second child");
+                    }
+
+                    if (vm.item.numberOfChildren > 2) {
+                        return $http.post('/api/child', vm.child3)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+                        console.log("Input third child");
+                    }
+
+                    if (vm.item.numberOfChildren > 2) {
+                        return $http.post('/api/child', vm.child4)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+
+                        console.log("Input fourth child");
+                    }
                 }
 
                 function onCreateSuccess(response) {
@@ -556,5 +830,6 @@
 
 
         })();
+>>>>>>> eaa91b2548b1af07b7bad8615b6c3029711eae36
     </script>
 }
