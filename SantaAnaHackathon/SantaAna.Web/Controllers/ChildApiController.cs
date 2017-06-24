@@ -1,5 +1,6 @@
 ﻿using SantaAna.Web.Models.Requests;
 using SantaAna.Web.Models.Response;
+using SantaAna.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace SantaAna.Web.Controllers
         public HttpResponseMessage CreateChild(ChildAddRequest payload)
         {
             ItemResponse<int> response = new ItemResponse<int>();
+            ChildService childSvc = new ChildService();
 
             response.Item = childSvc.CreateChild(payload);
             return Request.CreateResponse(response);
