@@ -2,120 +2,228 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="jumbotron">
-    <h1>Kids 4 Life</h1>
+<!-- body -->
+<div class="body-content">
+    <div class="container">
+        <div class="body-content1">
+            <!-- header -->
+            <div class="logo-search">
+                <div class="logo">
+                    <h1><a href="index.html">k<span class="color">i</span><span class="color1">d</span><span class="color2">s</span> <span class="color">4</span> <span>life</span> <i></i></a></h1>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search Here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
+                        <input type="submit" value=" ">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //header -->
+            <!-- banner -->
+            <div class="banner">
+                <div class="banner-grids">
+                    <div class="banner-left">
+                        <div class="banner-left1">
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/1.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/4.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-left2">
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/3.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/2.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids studying
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="banner-right">
+                        <section class="slider">
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="services-grid-right-grid1">
 
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="services-grid-right-grid2">
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="services-grid-right-grid3">
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <!--FlexSlider-->
+                        <script src="~/Scripts/jquery.flexslider.js"></script>
+                        <script type="text/javascript">
+                            $(window).load(function () {
+                                $('.flexslider').flexslider({
+                                    animation: "slide",
+                                    start: function (slider) {
+                                        $('body').removeClass('loading');
+                                    }
+                                });
+                            });
+                        </script>
+                        <!--End-slider-script-->
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- //banner -->
+            <!-- banner-bottom -->
+            <div class="banner-bottom">
+                <div class="banner-bottom-grids">
+                    <div class="col-md-4 banner-bottom-grid">
+                        <h3>Welcome To <span>Kids 4 Life</span></h3>
+                        <h2><i>"Cray waistcoat vice selfies pop-up PBR&B polaroid. "</i></h2>
+                        <p>
+                            Kickstarter affogato shaman yr occupy. Edison bulb intelligentsia pug brunch meggings narwhal kombucha twee gentrify coloring book. 
+                            <span>
+                                Shoreditch kale chips gentrify af farm-to-table. Unicorn pour-over 90's cray chicharrones craft beer actually try-hard mixtape taiyaki VHS beard letterpress. 
+                            </span>
+                        </p>
+                        <div class="more">
+                            <a href="single.html" class="hvr-rectangle-out">Read More...</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- //banner-bottom -->
+        </div>
+    </div>
 </div>
+<!-- //body -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-3 footer-grid">
+                <p>
+                    HALOVIETNAM LTD
+                    66, Dang Van ngu, Dong Da
+                    Hanoi, USA.
+                    <a href="mailto:info@example.com">contact@example.com</a>
+                <p>Phone : +844 35149182</p>
+            </div>
+            <div class="col-md-3 footer-grid">
+                <ul>
+                    <li><a href="mail.html">Contact</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="short-codes.html">Short Codes</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grid">
+                <ul>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy 2016 Kids School. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
+            <ul>
+                <li><a href="#" class="twitter"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Twitter"></span></a></li>
+                <li><a href="#" class="p"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Pinterest"></span></a></li>
+                <li><a href="#" class="facebook" id="facebook"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Facebook"></span></a></li>
+                <li><a href="#" class="dribble"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Dribbble"></span></a></li>
+                <li><a href="#" class="rss"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On RSS"></span></a></li>
+                <div class="clearfix"> </div>
+            </ul>
+            <script>
+                                $(function () {
+                                    $('[data-toggle="tooltip"]').tooltip()
+                                })
+            </script>
+        </div>
+    </div>
+</div>
+<!-- //footer -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+                                $(document).ready(function () {
+                                    /*
+                                    var defaults = {
+                                        containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                    };
+                                    */
+
+                                    $().UItoTop({ easingType: 'easeOutQuart' });
+
+                                });
+</script>
+<!-- //here ends scrolling icon -->
+
+
 
 <div class="row" ng-controller="foodController as fc">
-    <div class="panel container">
-            <div class="panel-default">
-            
-
-                <div class="col-md-12">
-                    <!-- start family information -->
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> Family Information</a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <div>
-                                        <form id="form" name="form">
-
-                                            <div class="form-group">
-                                                <h5><label>Family Size</label></h5>
-                                                <input type="number" name="familySize" min="1" max="20" class="form-control" ng-model="fc.item.familySize" style="max-width:800px;" />
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <h5><label>Number of Children</label></h5>
-                                                <input type="number" name="numberOfChildren" min="1" max="20" class="form-control" ng-model="fc.item.numberOfChildren" maxlength="50" style="max-width:800px;" />
-                                            </div><br />
-
-                                            <br />
-                                            <button type="submit" class="btn btn-primary" ng-click="fc.onSubmit(fc.item)">Submit</button><br />
-                                        </form>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- end parent section-->
-
-
-                    <!-- child information-->
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"> Child Information</a>
-                                </h4>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div>
-                                        <form id="childForm" name="childForm">
-
-                                            <div class="form-group">
-                                                <h5><label>Child Name</label></h5>
-                                                <input type="text" name="childName" class="form-control" ng-model="fc.child.childName" style="max-width:800px;" />
-                                            </div>
-
-
-                                            <div class="form-group container">
-                                                <div class="row">
-                                                    <h5><label>Age (Years/Months)</label></h5>
-                                                    <div class="col-md-4">
-                                                        <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child.childAgeYears" placeholder="Years" />
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child.childAgeMonths" placeholder="Months" />
-                                                    </div>
-                                                    </div>
-                                            </div><br />
-
-                                            <br />
-                                            <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child)">Submit</button><br />
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end child information-->
-
-
-                    <!-- select child start-->
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Select Child</a>
-                                </h4>
-                            </div>
-                            <div id="collapse3" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div>
-                                       
-
-                                           <div ng-repeat="child in fc.myChildren">
-                                               {{child.childName}}
-                                           </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- select child end-->
-            </div>
-        </div>
+    <div style="width:500px;margin:0 auto;">
+        <script src="http://platform.fatsecret.com/js?key=739c762a693d415f90c92fbf5447e575&amp;auto_load=true"></script>
     </div>
 </div>
 
@@ -145,7 +253,7 @@
                         "url": "http://platform.fatsecret.com/rest/server.api?search_expression=beef&method=foods.search&oauth_consumer_key=739c762a693d415f90c92fbf5447e575&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1498336378&oauth_nonce=C5QiVi4OH6F&oauth_version=1.0&oauth_signature=7Ug2R5JxhX9V6df9e2t/lTXtu9U=&format=json&max_results=50",
                         "method": "GET",
                         "headers": {
-                            "xhrCredentials": 'true'
+                            "xhrCredentials": true
                         }
                     }
 

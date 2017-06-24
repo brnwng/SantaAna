@@ -8,9 +8,9 @@ using System.Web;
 
 namespace SantaAna.Web.Services
 {
-    public class ParentService:BaseService
+    public class ParentService : BaseService
     {
-       
+
         public int CreateParent(ParentAddRequest payload)
         {
             /*
@@ -71,7 +71,7 @@ namespace SantaAna.Web.Services
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     sqlConn.Open();
-                   SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                    SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                     while (reader.Read())
                     {
                         Parent p = new Parent();
@@ -81,7 +81,7 @@ namespace SantaAna.Web.Services
                         p.ID = reader.GetInt32(startingIndex++);
                         p.FamilySize = reader.GetInt32(startingIndex++);
                         p.NumberOfChildren = reader.GetInt32(startingIndex++);
-    
+
 
                         parentList.Add(p);
                     }
@@ -116,7 +116,7 @@ namespace SantaAna.Web.Services
                         p.ID = reader.GetInt32(startingIndex++);
                         p.FamilySize = reader.GetInt32(startingIndex++);
                         p.NumberOfChildren = reader.GetInt32(startingIndex++);
-                    
+
 
                         if (row == null)
                         {
@@ -147,4 +147,3 @@ namespace SantaAna.Web.Services
         } //DeleteParent
     }
 }
-    
