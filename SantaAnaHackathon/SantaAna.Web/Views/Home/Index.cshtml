@@ -40,77 +40,10 @@
                 </div>
             </div>
             <!-- //banner-intro -->
-
+            <hr />
             <!-- banner -->
             <div class="banner">
                 <div class="banner-grids">
-                    <div class="banner-left">
-                        <div class="banner-left1">
-                            <div class="banner-left1-grid">
-                                <img src="/Content/images/1.jpg" alt=" " class="img-responsive" />
-                                <div class="banner-info">
-                                    <a class="read-more" href="single.html"><i></i></a>
-                                    <h3>
-                                        <a href="single.html">
-                                            Kids Playing
-                                        </a>
-                                    </h3>
-                                    <div class="event-meta">
-                                        <h4>Description</h4>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner-left1-grid">
-                                <img src="/Content/images/4.jpg" alt=" " class="img-responsive" />
-                                <div class="banner-info">
-                                    <a class="read-more" href="single.html"><i></i></a>
-                                    <h3>
-                                        <a href="single.html">
-                                            Kids Playing
-                                        </a>
-                                    </h3>
-                                    <div class="event-meta">
-                                        <h4>Description</h4>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner-left2">
-                            <div class="banner-left1-grid">
-                                <img src="/Content/images/3.jpg" alt=" " class="img-responsive" />
-                                <div class="banner-info">
-                                    <a class="read-more" href="single.html"><i></i></a>
-                                    <h3>
-                                        <a href="single.html">
-                                            Kids Playing
-                                        </a>
-                                    </h3>
-                                    <div class="event-meta">
-                                        <h4>Description</h4>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner-left1-grid">
-                                <img src="/Content/images/2.jpg" alt=" " class="img-responsive" />
-                                <div class="banner-info">
-                                    <a class="read-more" href="single.html"><i></i></a>
-                                    <h3>
-                                        <a href="single.html">
-                                            Kids studying
-                                        </a>
-                                    </h3>
-                                    <div class="event-meta">
-                                        <h4>Description</h4>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
                     <div class="banner-right">
                         <section class="slider">
                             <div class="flexslider">
@@ -151,6 +84,7 @@
                 </div>
             </div>
             <!-- //banner -->
+            <br />
             <!--Accordion-->
             <div class="panel container">
                 <div class="panel-default">
@@ -247,6 +181,138 @@
                     </div>
                 </div>
             </div>
+            <!--END ACCORDION-->
+            <!--Menus-->
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#menus"> Menus</a>
+                        </h4>
+                    </div>
+                    <div id="menus" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div>
+                                <ol>
+                                    <li ng-repeat="food in fc.food | orderBy: 'Calories'"><strong>{{food.Name}}</strong>, Calories: <strong>{{food.Calories}} kcal</strong><br /><br /></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Menus-->
+            <!-- SNACKS -->
+            <h4>Healthy Snacks</h4>
+                <div class="banner">
+                    <div class="banner-grids">
+                        <div class="banner-left">
+                            <div class="banner-left1">
+                                <div class="banner-left1-grid">
+                                    <img src="http://mac.h-cdn.co/assets/15/51/768x384/mcx-trythis-2.jpg" alt=" " class="img-responsive" />
+                                    <div class="banner-info">
+                                        <a class="read-more" href="javascript:void(0);"><i></i></a>
+                                        <h3>
+                                            <a href="javascript:void(0);">
+                                                Apples
+                                            </a>
+                                        </h3>
+                                        <div class="event-meta">
+                                          
+                                            <p> w/ Peanut Butter instead of Candy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="banner-left1-grid">
+                                    <img src="http://mac.h-cdn.co/assets/15/51/980x490/mcx-trythis-4.jpg" alt=" " class="img-responsive" />
+                                    <div class="banner-info">
+                                        <a class="read-more" href="javascript:void(0);"><i></i></a>
+                                        <h3>
+                                            <a href="javascript:void(0);">
+                                                Almonds / Mixed Nuts 
+                                            </a>
+                                        </h3>
+                                        <div class="event-meta">
+                                            
+                                            <p>instead of Candies</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-left2">
+                                <div class="banner-left1-grid">
+                                    <img src="http://mac.h-cdn.co/assets/16/31/768x384/mc_080516_snax2.jpg" alt=" " class="img-responsive" />
+                                    <div class="banner-info">
+                                        <a class="read-more" href="javascript:void(0);"><i></i></a>
+                                        <h3>
+                                            <a href="javascript:void(0);">
+                                                Berries 
+                                            </a>
+                                        </h3>
+                                        <div class="event-meta">
+                                      
+                                            <p>instead of Cupcakes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="banner-left1-grid">
+                                    <img src="http://mac.h-cdn.co/assets/16/31/768x384/mc_080516_snax4.jpg" alt=" " class="img-responsive" />
+                                    <div class="banner-info">
+                                        <a class="read-more" href="javascript:void(0);"><i></i></a>
+                                        <h3>
+                                            <a href="javascript:void(0);">
+                                                Carrots
+                                            </a>
+                                        </h3>
+                                        <div class="event-meta">
+                                            <p>Instead of Hot Cheetos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="banner-right">
+                            <section class="slider">
+                                <div class="flexslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="services-grid-right-grid1">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="services-grid-right-grid2">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="services-grid-right-grid3">
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <!--FlexSlider-->
+                            <script src="~/Scripts/jquery.flexslider.js"></script>
+                            <script type="text/javascript">
+                                $(window).load(function () {
+                                    $('.flexslider').flexslider({
+                                        animation: "slide",
+                                        start: function (slider) {
+                                            $('body').removeClass('loading');
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!--End-slider-script-->
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            <!-- END SNACKS -->
+
         </div>
     </div>
 </div>
@@ -392,6 +458,8 @@
                 vm.myChildren = null;
                 vm.getChildren = _getChildren;
                 vm.retrieveChildren = _retrieveChildren;
+                vm.foodSearch = _foodSearch;
+                vm.food = [];
 
                 render();
 
@@ -457,6 +525,32 @@
                 function getChildrenSuccess() {
                     console.log("completed render and retrieving children data")
                 } //getChildrenSuccess
+
+                //BRIANS 
+                function _foodSearch() {
+                    vm.$fatSecretService.foodSearch()
+                        .then(onCompleteFoodSearch)
+                }
+                function onCompleteFoodSearch(response) {
+                    console.log(response)
+                    for (var i = 0; i < response.data.length; i++) {
+                        if (vm.child.ChildAgeYears <= 5) {
+                            if (response.data[i].Calories < 100) {
+                                vm.food.push(response.data[i]);
+                            }
+                        }
+                        else if (vm.child.ChildAgeYears > 6 && vm.child.ChildAgeYears <= 10) {
+                            if (response.data[i].Calories < 150) {
+                                vm.food.push(response.data[i]);
+                            }
+                        }
+                        else if (vm.child.ChildAgeYears > 11) {
+                            vm.food.push(response.data[i]);
+                        }
+                    }
+                    //vm.food = response.data;
+                    return response;
+                }
 
             }
 
