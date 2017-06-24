@@ -2,39 +2,229 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="jumbotron">
-    <h1>Kids 4 Life</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!-- body -->
+<div class="body-content">
+    <div class="container">
+        <div class="body-content1">
+            <!-- header -->
+            <div class="logo-search">
+                <div class="logo">
+                    <h1><a href="index.html">k<span class="color">i</span><span class="color1">d</span><span class="color2">s</span> <span class="color">4</span> <span>life</span> <i></i></a></h1>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search Here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
+                        <input type="submit" value=" ">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //header -->
+            <!-- banner -->
+            <div class="banner">
+                <div class="banner-grids">
+                    <div class="banner-left">
+                        <div class="banner-left1">
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/1.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/4.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-left2">
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/3.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids Playing
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-left1-grid">
+                                <img src="/Content/images/2.jpg" alt=" " class="img-responsive" />
+                                <div class="banner-info">
+                                    <a class="read-more" href="single.html"><i></i></a>
+                                    <h3>
+                                        <a href="single.html">
+                                            Kids studying
+                                        </a>
+                                    </h3>
+                                    <div class="event-meta">
+                                        <h4>Description</h4>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="banner-right">
+                        <section class="slider">
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="services-grid-right-grid1">
 
-{{2+2}}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="services-grid-right-grid2">
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="services-grid-right-grid3">
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <!--FlexSlider-->
+                        <script src="~/Scripts/jquery.flexslider.js"></script>
+                        <script type="text/javascript">
+                            $(window).load(function () {
+                                $('.flexslider').flexslider({
+                                    animation: "slide",
+                                    start: function (slider) {
+                                        $('body').removeClass('loading');
+                                    }
+                                });
+                            });
+                        </script>
+                        <!--End-slider-script-->
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- //banner -->
+            <!-- banner-bottom -->
+            <div class="banner-bottom">
+                <div class="banner-bottom-grids">
+                    <div class="col-md-4 banner-bottom-grid">
+                        <h3>Welcome To <span>Kids 4 Life</span></h3>
+                        <h2><i>"Cray waistcoat vice selfies pop-up PBR&B polaroid. "</i></h2>
+                        <p>
+                            Kickstarter affogato shaman yr occupy. Edison bulb intelligentsia pug brunch meggings narwhal kombucha twee gentrify coloring book. 
+                            <span>
+                                Shoreditch kale chips gentrify af farm-to-table. Unicorn pour-over 90's cray chicharrones craft beer actually try-hard mixtape taiyaki VHS beard letterpress. 
+                            </span>
+                        </p>
+                        <div class="more">
+                            <a href="single.html" class="hvr-rectangle-out">Read More...</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- //banner-bottom -->
+        </div>
+    </div>
+</div>
+<!-- //body -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-3 footer-grid">
+                <p>
+                    HALOVIETNAM LTD
+                    66, Dang Van ngu, Dong Da
+                    Hanoi, USA.
+                    <a href="mailto:info@example.com">contact@example.com</a>
+                <p>Phone : +844 35149182</p>
+            </div>
+            <div class="col-md-3 footer-grid">
+                <ul>
+                    <li><a href="mail.html">Contact</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="short-codes.html">Short Codes</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grid">
+                <ul>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy 2016 Kids School. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
+            <ul>
+                <li><a href="#" class="twitter"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Twitter"></span></a></li>
+                <li><a href="#" class="p"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Pinterest"></span></a></li>
+                <li><a href="#" class="facebook" id="facebook"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Facebook"></span></a></li>
+                <li><a href="#" class="dribble"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On Dribbble"></span></a></li>
+                <li><a href="#" class="rss"><span type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Follow Us On RSS"></span></a></li>
+                <div class="clearfix"> </div>
+            </ul>
+            <script>
+                                $(function () {
+                                    $('[data-toggle="tooltip"]').tooltip()
+                                })
+            </script>
+        </div>
+    </div>
+</div>
+<!-- //footer -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+                                $(document).ready(function () {
+                                    /*
+                                    var defaults = {
+                                        containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                    };
+                                    */
+
+                                    $().UItoTop({ easingType: 'easeOutQuart' });
+
+                                });
+</script>
+<!-- //here ends scrolling icon -->
+
 
 
 <div class="row" ng-controller="foodController as fc">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div style="width:500px;margin:0 auto;">
+        <script src="http://platform.fatsecret.com/js?key=739c762a693d415f90c92fbf5447e575&amp;auto_load=true"></script>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
-
-<div style="width:500px;margin:0 auto;">
-    <script src="http://platform.fatsecret.com/js?key=739c762a693d415f90c92fbf5447e575&amp;auto_load=true"></script>
 </div>
 
 
@@ -67,7 +257,7 @@
                     }
 
                     return $http(vm.settings)
-                        //.then(onCompleteFoodSearch)
+                    //.then(onCompleteFoodSearch)
                 }
             }
         })();
