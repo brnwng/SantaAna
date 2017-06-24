@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SantaAna.Web.Models;
+using SantaAna.Web.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,9 +18,13 @@ namespace SantaAna.Web.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet]
+        [Route]
+        public HttpResponseMessage GetParentById()
         {
-            return "value";
+            ParentService parentSvc = new ParentService();
+            List<Parent> parentList = parentSvc.GetParentByID();
+            return Request.CreateResponse(HttpStatusCode.OK, parentList);
         }
 
         // POST api/<controller>
