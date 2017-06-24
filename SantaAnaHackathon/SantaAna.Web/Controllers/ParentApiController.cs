@@ -19,11 +19,11 @@ namespace SantaAna.Web.Controllers
 
         // GET api/<controller>/5
         [HttpGet]
-        [Route]
-        public HttpResponseMessage GetParentById()
+        [Route("{id}")]
+        public HttpResponseMessage GetParentById(int id)
         {
             ParentService parentSvc = new ParentService();
-            List<Parent> parentList = parentSvc.GetParentByID();
+            List<Parent> parentList = parentSvc.GetParentByID(id);
             return Request.CreateResponse(HttpStatusCode.OK, parentList);
         }
 

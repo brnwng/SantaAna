@@ -10,7 +10,7 @@ namespace SantaAna.Web.Services
     public class ParentService
     {
         //Select by ParentID
-        public List<Parent> GetParentByID()
+        public List<Parent> GetParentByID(int id)
         {
             List<Parent> parentList = new List<Parent>();
 
@@ -19,6 +19,9 @@ namespace SantaAna.Web.Services
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.Parent_SelectById", sqlConn))
                 {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+
                     sqlConn.Open();
                     SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                     while (reader.Read())
