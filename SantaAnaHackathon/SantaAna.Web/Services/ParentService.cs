@@ -68,6 +68,9 @@ namespace SantaAna.Web.Services
                 // establlish command object
                 using (SqlCommand cmd = new SqlCommand("dbo.Parent_Select", sqlConn))
                 {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+
                     sqlConn.Open();
                    SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                     while (reader.Read())

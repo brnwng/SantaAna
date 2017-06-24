@@ -1,11 +1,7 @@
 ﻿using SantaAna.Web.Models.Requests;
 using SantaAna.Web.Models.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace SantaAna.Web.Services
 {
@@ -99,7 +95,7 @@ namespace SantaAna.Web.Services
             using (SqlConnection sqlConn = new SqlConnection(connString))
             {
                 // establlish command object
-                using (SqlCommand cmd = new SqlCommand("dbo.Child_GetById", sqlConn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Child_SelectById", sqlConn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);

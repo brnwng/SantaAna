@@ -2,9 +2,7 @@
 using SantaAna.Web.Models.Response;
 using SantaAna.Web.Models.ViewModels;
 using SantaAna.Web.Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -28,7 +26,16 @@ namespace SantaAna.Web.Controllers
             ChildService childSvc = new ChildService();
             List<Child> childList = childSvc.GetChilds();
             return Request.CreateResponse(HttpStatusCode.OK, childList);
-        }
+        } //GetChilds
+
+        [Route("{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetChildById([FromUri] int id, ChildAddRequest payload)
+        {
+            ChildService childSvc = new ChildService();
+            Child child = childSvc.GetChildById(id);
+            return Request.CreateResponse(HttpStatusCode.OK, child);
+        } //GetChildById
 
         // POST api/<controller>
         [Route]
@@ -57,6 +64,6 @@ namespace SantaAna.Web.Controllers
             childSvc.DeleteChild(id);
 
             return Request.CreateResponse(HttpStatusCode.OK, id);
-        } //DeletePerson
+        } //DeleteChild
     }
 }
