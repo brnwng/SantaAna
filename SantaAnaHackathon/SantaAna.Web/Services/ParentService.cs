@@ -1,13 +1,17 @@
-﻿using SantaAna.Web.Models.Requests;
-using SantaAna.Web.Models.ViewModels;
+﻿using SantaAna.Web.Models;
+using SantaAna.Web.Models.Requests;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 
 namespace SantaAna.Web.Services
 {
-    public class ChildService : BaseService
+    public class ParentService:BaseService
     {
-        public int CreateChild(ChildAddRequest payload)
+       
+        public int CreateParent(ParentAddRequest payload)
         {
             /*
              1. You need a connection
@@ -27,12 +31,11 @@ namespace SantaAna.Web.Services
             using (SqlConnection sqlConn = new SqlConnection(connString))
             {
                 // establlish command object
-                using (SqlCommand cmd = new SqlCommand("dbo.Child_Insert", sqlConn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Parent_Insert", sqlConn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ChildName", payload.ChildName);
-                    cmd.Parameters.AddWithValue("@ChildAgeYears", payload.ChildAgeYears);
-                    cmd.Parameters.AddWithValue("@ChildAgeMonths", payload.ChildAgeMonths);
+                    cmd.Parameters.AddWithValue("@FamilySize", payload.FamilySize);
+                    cmd.Parameters.AddWithValue("@NumberOfChildren", payload.NumberOfChildren);
 
                     SqlParameter param = new SqlParameter();
                     param.ParameterName = "@ID";
@@ -50,11 +53,11 @@ namespace SantaAna.Web.Services
                 }
             }
             return id;
-        } //CreateChild
+        } //CreateParent
 
-        public List<Child> GetChilds()
+        public List<Parent> GetParents()
         {
-            List<Child> childList = new List<Child>();
+            List<Parent> parentList = new List<Parent>();
 
             // setting connection string to a variable
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -63,31 +66,34 @@ namespace SantaAna.Web.Services
             using (SqlConnection sqlConn = new SqlConnection(connString))
             {
                 // establlish command object
-                using (SqlCommand cmd = new SqlCommand("dbo.Child_SelectAll", sqlConn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Parent_Select", sqlConn))
                 {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+
                     sqlConn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                   SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                     while (reader.Read())
                     {
-                        Child c = new Child();
+                        Parent p = new Parent();
                         int startingIndex = 0;
 
                         //reading data from db
-                        c.Id = reader.GetInt32(startingIndex++);
-                        c.ChildName = reader.GetString(startingIndex++);
-                        c.ChildAgeYears = reader.GetInt32(startingIndex++);
-                        c.ChildAgeMonths = reader.GetInt32(startingIndex++);
+                        p.ID = reader.GetInt32(startingIndex++);
+                        p.FamilySize = reader.GetInt32(startingIndex++);
+                        p.NumberOfChildren = reader.GetInt32(startingIndex++);
+    
 
-                        childList.Add(c);
+                        parentList.Add(p);
                     }
                 }
             }
-            return childList;
-        } //GetChilds
+            return parentList;
+        } //GetParent
 
-        public Child GetChildById(int id)
+        public Parent GetParentById(int id)
         {
-            Child row = null;
+            Parent row = null;
 
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
@@ -95,7 +101,7 @@ namespace SantaAna.Web.Services
             using (SqlConnection sqlConn = new SqlConnection(connString))
             {
                 // establlish command object
-                using (SqlCommand cmd = new SqlCommand("dbo.Child_SelectById", sqlConn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Parent_SelectById", sqlConn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
@@ -104,32 +110,32 @@ namespace SantaAna.Web.Services
                     SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                     while (reader.Read())
                     {
-                        Child c = new Child();
+                        Parent p = new Parent();
                         int startingIndex = 0;
 
                         //reading data from db
-                        c.Id = reader.GetInt32(startingIndex++);
-                        c.ChildName = reader.GetString(startingIndex++);
-                        c.ChildAgeYears = reader.GetInt32(startingIndex++);
-                        c.ChildAgeMonths = reader.GetInt32(startingIndex++);
+                        p.ID = reader.GetInt32(startingIndex++);
+                        p.FamilySize = reader.GetInt32(startingIndex++);
+                        p.NumberOfChildren = reader.GetInt32(startingIndex++);
+                    
 
                         if (row == null)
                         {
-                            row = c;
+                            row = p;
                         }
                     }
                 }
             }
             return row;
-        } //GetChildById
+        } //GetParentById
 
-        public void DeleteChild(int id)
+        public void DeleteParent(int id)
         {
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             using (SqlConnection sqlConn = new SqlConnection(connString))
             {
-                using (SqlCommand cmd = new SqlCommand("dbo.Child_Delete", sqlConn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Parent_Delete", sqlConn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
@@ -139,6 +145,7 @@ namespace SantaAna.Web.Services
                     cmd.ExecuteNonQuery();
                 }
             }
-        } //DeleteChild
+        } //DeleteParent
     }
 }
+    

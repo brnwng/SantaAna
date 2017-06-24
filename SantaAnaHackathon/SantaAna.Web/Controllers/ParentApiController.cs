@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SantaAna.Web.Models;
+using SantaAna.Web.Models.Requests;
+using SantaAna.Web.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,33 +10,53 @@ using System.Web.Http;
 
 namespace SantaAna.Web.Controllers
 {
+    [RoutePrefix("api/parents")]
     public class ParentApiController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet]
+        [Route]
+        public HttpResponseMessage GetParents()
         {
-            return "value";
+            ParentService parentSvc = new ParentService();
+            List<Parent> parentList = parentSvc.GetParents();
+            return Request.CreateResponse(HttpStatusCode.OK, parentList);
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPost]
+        [Route]
+        public HttpResponseMessage CreateParent(ParentAddRequest model)
         {
+            ParentService parentSvc = new ParentService();
+            int id = parentSvc.CreateParent(model);
+            return Request.CreateResponse(HttpStatusCode.OK, id);
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+
+        [HttpGet]
+        [Route("{id}")]
+        public HttpResponseMessage GetParentById([FromUri] int id)
         {
+   
+            ParentService parentSvc = new ParentService();
+            Parent row = parentSvc.GetParentById(id);
+            return Request.CreateResponse(HttpStatusCode.OK, row);
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("{id}")]
+        public HttpResponseMessage DeleteParent(int id)
         {
+            ParentService parentSvc = new ParentService();
+            parentSvc.DeleteParent(id);
+            return Request.CreateResponse(HttpStatusCode.OK, id);
         }
     }
 }
