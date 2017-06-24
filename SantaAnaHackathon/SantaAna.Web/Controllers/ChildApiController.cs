@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SantaAna.Web.Models.Requests;
+using SantaAna.Web.Models.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,6 +9,7 @@ using System.Web.Http;
 
 namespace SantaAna.Web.Controllers
 {
+    [RoutePrefix("api/child")]
     public class ChildApiController : ApiController
     {
         // GET api/<controller>
@@ -22,14 +25,20 @@ namespace SantaAna.Web.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        [Route]
+        [HttpPost]
+        public HttpResponseMessage CreateChild(ChildAddRequest payload)
         {
-        }
+            ItemResponse<int> response = new ItemResponse<int>();
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            response.Item = childSvc.CreateChild(payload);
+            return Request.CreateResponse(response);
+        } //CreateChild
+
+        //// PUT api/<controller>/5
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
         // DELETE api/<controller>/5
         public void Delete(int id)
