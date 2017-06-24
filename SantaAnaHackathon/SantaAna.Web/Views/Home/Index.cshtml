@@ -192,9 +192,72 @@
                                                             <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child.childAgeMonths" placeholder="Months" />
                                                         </div>
                                                     </div>
-                                                </div><br />
+                                                    </div><br />
+
+                                                    <div ng-if="fc.item.numberOfChildren > 1">
+                                                    <div class="form-group">
+                                                        <h5><label>Child Name</label></h5>
+                                                        <input type="text" name="childName" class="form-control" ng-model="fc.child2.childName" style="max-width:800px;" />
+                                                    </div>
+
+                                                        <div class="form-group container">
+                                                            <div class="row">
+                                                                <h5><label>Age (Years/Months)</label></h5>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child2.childAgeYears" placeholder="Years" />
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child2.childAgeMonths" placeholder="Months" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div><br />
+
+
+                                                    <div ng-if="fc.item.numberOfChildren > 2">
+                                                        <div class="form-group">
+                                                            <h5><label>Child Name</label></h5>
+                                                            <input type="text" name="childName" class="form-control" ng-model="fc.child3.childName" style="max-width:800px;" />
+                                                        </div>
+
+                                                        <div class="form-group container">
+                                                            <div class="row">
+                                                                <h5><label>Age (Years/Months)</label></h5>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child3.childAgeYears" placeholder="Years" />
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child3.childAgeMonths" placeholder="Months" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div><br />
+
+                                                        <div ng-if="fc.item.numberOfChildren > 3">
+                                                            <div class="form-group">
+                                                                <h5><label>Child Name</label></h5>
+                                                                <input type="text" name="childName" class="form-control" ng-model="fc.child4.childName" style="max-width:800px;" />
+                                                            </div>
+
+                                                            <div class="form-group container">
+                                                                <div class="row">
+                                                                    <h5><label>Age (Years/Months)</label></h5>
+                                                                    <div class="col-md-4">
+                                                                        <input type="number" name="ageInYears" min="1" max="99" class="form-control" ng-model="fc.child4.childAgeYears" placeholder="Years" />
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <input type="number" name="ageInMonths" min="1" max="12" class="form-control" ng-model="fc.child4.childAgeMonths" placeholder="Months" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div><br />
+
                                                 <br />
-                                                <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child)">Submit</button><br />
+                                                <button type="submit" class="btn btn-primary" ng-click="fc.submitChild(fc.child, fc.child2, fc.child3, fc.child4)">Submit</button><br />
                                             </form>
                                         </div>
                                     </div>
@@ -364,13 +427,11 @@
                 vm.myChildren = null;
                 vm.getChildren = _getChildren;
 
-                //family size input
-                vm.item = null;
-                vm.child = null;
-                vm.onSubmit = _onSubmit;
-                vm.submitChild = _submitChild;
-                vm.myChildren = null;
-                vm.getChildren = _getChildren;
+                //children stuff (for addtional children)
+                vm.child2 = null;
+                vm.child3 = null;
+                vm.child4 = null;
+
 
                 render();
 
@@ -398,17 +459,45 @@
                     return $http.post('/api/parents', item)
                         .then(onCreateSuccess)
                         .catch(onError);
-
                 }
 
-                function _submitChild(child) {
+                function _submitChild(child, child2, child3, child4) {
                     $("#collapse2").collapse("hide");
                     $("#collapse3").collapse("show");
 
                     vm.child = child;
+                    vm.child = child2;
+                    vm.child = child3;
+                    vm.child = child4;
+                    if (vm.item.numberOfChildren == 1){
                     return $http.post('/api/child', child)
                         .then(onCreateSuccess)
-                        .catch(onError);
+                            .catch(onError);
+
+                    console.log("Input first child");
+                    }
+
+                    if (vm.item.numberOfChildren > 1) {
+                        return $http.post('/api/child', vm.child2)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+                        console.log("Input second child");
+                    }
+
+                    if (vm.item.numberOfChildren > 2) {
+                        return $http.post('/api/child', vm.child3)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+                        console.log("Input third child");
+                    }
+
+                    if (vm.item.numberOfChildren > 2) {
+                        return $http.post('/api/child', vm.child4)
+                            .then(onCreateSuccess)
+                            .catch(onError);
+
+                        console.log("Input fourth child");
+                    }
                 }
 
                 function onCreateSuccess(response) {
